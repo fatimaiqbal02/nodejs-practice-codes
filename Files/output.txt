@@ -1,0 +1,2 @@
+Data read from file: hey, my name is Fatima Iqbal Mirza. 
+Date created: Tue Aug 01 2023 11:35:39 GMT+0500 (Pakistan Standard Time)
