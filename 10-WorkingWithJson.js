@@ -12,7 +12,18 @@ let products = JSON.parse(rawData)
 
 let productsList = fs.readFileSync('./Template/products.html', 'utf-8')
 
+let productHtmlArray = products.map((prod)=>{
+    let output = productsList.replace('{{%IMAGE%}}', prod.productImage);
+    output = output.replace('{{%NAME%}}', prod.name)
+    output = output.replace('{{%MODELNO%}}', prod.modeNumber)
+    output = output.replace('{{%MODELNAME%}}', prod.modeName)
+    output = output.replace('{{%PRICE%}}', prod.price)
+    output = output.replace('{{%COLOR%}}', prod.color)
+    output = output.replace('{{%SIZE%}}', prod.size)
+    output = output.replace('{{%CAMERA%}}', prod.camera)
 
+    return output;
+})
 
 //creating the server
 const server = http.createServer((request, response)=>{
@@ -41,7 +52,8 @@ const server = http.createServer((request, response)=>{
             'Content-Type': 'text/html',
             'my-header': 'hello, fatima'
         })
-        response.end(productsList)
+        //response.end(productsList)            //hardcoded one value
+        response.end(htmlContent.replace('{{%Content%}}', productHtmlArray.join(',')))
     }else{
         response.writeHead(404, {
             'Content-Type': 'text/html',
