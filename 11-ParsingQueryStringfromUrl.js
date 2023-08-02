@@ -23,8 +23,6 @@ let productHtmlArray = products.map((prod)=>{
     output = output.replace('{{%SIZE%}}', prod.size)
     output = output.replace('{{%CAMERA%}}', prod.camera)
     output = output.replace('{{%ID%}}', prod.id)
-    
-    console.log(output)
     return output;
 })
 
@@ -52,7 +50,7 @@ const server = http.createServer((request, response)=>{
         })
         response.end(htmlContent.replace('{{%Content%}}', "You are in Contact page"))
     }else if(path.toLocaleLowerCase() === '/products'){
-        if(query.id){
+        if(!query.id){
             response.writeHead(200, {
                 'Content-Type': 'text/html',
                 'my-header': 'hello, fatima'
@@ -60,9 +58,9 @@ const server = http.createServer((request, response)=>{
             //response.end(productsList)            //hardcoded one value
             response.end(htmlContent.replace('{{%Content%}}', productHtmlArray.join(',')))
         }else{
-            response.end("this is the product with id ="+query.id)
+            response.end("this is detail of product with id =" +query.id)
         }
-       
+        
     }else{
         response.writeHead(404, {
             'Content-Type': 'text/html',
