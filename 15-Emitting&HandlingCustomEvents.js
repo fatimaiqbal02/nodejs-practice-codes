@@ -1,6 +1,6 @@
 const events = require('events')
 
-//created event emitter
+//created event emitter..
 myEmitter = new events.EventEmitter()
 
 //event listener and event handler 
