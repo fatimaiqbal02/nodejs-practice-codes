@@ -8,9 +8,13 @@ const server = http.createServer()
 
 server.on('request', (request, response)=>{
     let rs = fs.createReadStream('./Files/largeFile.txt')
-
+    //rs.pipe(response)          solves backpressure problem
+    
     rs.on('data', (chunk)=>{
         response.write(chunk)
+    })
+
+    rs.on('end',()=>{
         response.end()
     })
 
@@ -22,3 +26,5 @@ server.on('request', (request, response)=>{
 server.listen(portNo, hostname, ()=>{
     console.log("Server has started...")
 })
+
+//reading stream working faster, writing stream slow => back pressure(response slow)
