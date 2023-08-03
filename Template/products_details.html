@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .page-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        }
+
+        .product-page {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 40px;
+        }
+
+        .product-desc-image img {
+        display: block;
+        margin: 0 auto;
+        }
+
+        .product-details-info {
+        flex: 1;
+        }
+
+        .product-desc-p {
+        margin: 5px 0;
+        }
+
+        .product-details-desc {
+        margin-top: 20px;
+        }
+
+        .btn-back {
+        display: block;
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        }
+
+        .product-details-info h2 {
+        color: green;
+        }
+
+        .product-desc-details h3{
+        font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="page-content">
+        <div class="product-page">
+        <div class="product-desc">
+            <div class="product-desc-image">
+                <img src={{%IMAGE%}} width="280" height="320">
+            </div>
+                <div class="product-details-info">
+                    <h1>{{%NAME%}}</h1>
+                    <h2 style="color: green;">${{%PRICE%}}</h2>
+                    <div class="product-desc-details">
+                        <h3>Product Details</h3>
+                        <p class="product-desc-p">{{%SIZE%}}</p>
+                        <p class="product-desc-p">{{%CAMERA%}}</p>
+                        <p class="product-desc-p"><b>Model Number: </b>{{%MODELNO%}}</p>
+                        <p class="product-desc-p"><b>Model Name: </b>{{%MODELNAME%}}</p>
+                        <p class="product-desc-p"><b>ROM: </b>{{%ROM%}} GB</p>
+                    </div>
+                    <div class="product-details-desc">
+                        <h3>Product Description</h3>
+                        <p class="product-desc-p">
+                            {{%DESC%}}
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <a href="/products" class="btn-back">Back</a>
+                </div>
+            </div>
+        </div>
+     </div>
+</body>
+</html>
