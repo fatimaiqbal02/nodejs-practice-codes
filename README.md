@@ -3,7 +3,7 @@ Welcome to my NodeJs-practiceCodes repository! This GitHub repo contains my prac
 You will find my practice codes for Core Modules and Common APIs, Express.js, Authentication and Authorization, Async programming, middlewares and database(mongodb) and much more.
 
  
- # <h3>Introduction</h3>
+ ## Introduction
  
 This GitHub repository documents my journey of learning Nodejs through the comprehensive course on 'proacademy' youtube channel.
 Here, I share my practice codes, projects, and experiments as I dive into the world of Node.js. 
@@ -12,20 +12,20 @@ of Nodejs principles and best practices. You will find my practice codes for Cor
 Async programming, middlewares and database(mongodb) and much more. I have delved deep into these concepts 
 to gain hands-on experience. All the codes neat and are written in well organized manner.
 
-# <h3>Features</h3>
+## Features
 The repository includes:
 
-**Core Modules and Common APIs**: Explore the foundational aspects of Node.js with a focus on its built-in modules and common APIs. I'll be experimenting 
+- **Core Modules and Common APIs**: Explore the foundational aspects of Node.js with a focus on its built-in modules and common APIs. I'll be experimenting 
                                   with functionalities such as the File System (fs), HTTP, Events, and more.
 
-**Express.js:** Witness the power of Express.js as I build web applications and RESTful APIs using this popular Node.js framework. 
+- **Express.js:** Witness the power of Express.js as I build web applications and RESTful APIs using this popular Node.js framework. 
                 From routing to middleware, expect a wide range of Express.js exploration.
 
-**Authentication and Authorization:** Unreveal the secrets of secure user authentication and authorization mechanisms. I'll delve into techniques using JWT (JSON Web Tokens) etc.
+- **Authentication and Authorization:** Unreveal the secrets of secure user authentication and authorization mechanisms. I'll delve into techniques using JWT (JSON Web Tokens) etc.
 
-**Async Programming:** Embrace the asynchronous nature of Node.js through practical examples. I'll be showcasing Promises, Async/Await, and classic callback patterns.
+- **Asynchronous and Synchronous Programming:** Embrace the asynchronous nature of Node.js through practical examples. I'll be showcasing Promises, Async/Await, and classic callback patterns.
 
-**Middleware and Database (MongoDB)**: Discover the significance of middleware in Express.js applications and how it enables seamless request processing. 
+- **Middleware and Database (MongoDB)**: Discover the significance of middleware in Express.js applications and how it enables seamless request processing. 
                                       Additionally, we'll integrate with MongoDB, a powerful NoSQL database.
 
 ...and much more!
