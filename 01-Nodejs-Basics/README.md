@@ -41,8 +41,8 @@ The directory includes:
 ...and much more!
 
 #
-Thank you for visiting this repository, This repository is my personal Node.js playground, but I also welcome anyone who wants to learn and grow. 
-I hope you find these practice codes helpful in your learning journey! feel free to explore the code challenges in this repository. 
+Thank you for visiting this directory, This directory is my personal Node.js playground, but I also welcome anyone who wants to learn and grow. 
+I hope you find these practice codes helpful in your learning journey! feel free to explore the code challenges in this directory. 
 If you have any questions or suggestions, contact me at fatimaiqbalmirza002@gmail.com
 
 Happy coding!✨
