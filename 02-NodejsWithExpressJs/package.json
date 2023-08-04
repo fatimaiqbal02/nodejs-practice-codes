@@ -1,0 +1,14 @@
+{
+  "name": "02-nodejswithexpressjs",
+  "version": "1.0.0",
+  "description": "Learning nodejs with expressJs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fatimaIqbalMirza",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
