@@ -1,0 +1,28 @@
+[
+    {
+        "id":1,
+        "name":"Movie 1",
+        "releaseYear":2018,
+        "duration":90
+    },
+    {   "id":2,
+        "name":"Movie 2",
+        "releaseYear":2020,
+        "duration":70
+    },
+    {
+        "id":3
+    }, 
+    {   "id":4,
+        "name":"Movie 4",
+        "releaseYear":2020,
+        "duration":70
+    },
+    {   "id":5
+    },
+    {   "id":6,
+        "name":"Movie 6",
+        "releaseYear":2023,
+        "duration":90
+    }
+]
