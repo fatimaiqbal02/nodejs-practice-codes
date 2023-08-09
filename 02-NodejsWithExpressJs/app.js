@@ -40,7 +40,7 @@ app.post('/api/v1/movies', (req, res)=>{
     //res.send('Created')
 })
 
-//3)Get movie by ID -  GET: api/v1/movies:id
+//3)Get movie by ID -  GET: api/v1/movies/:id
 app.get('/api/v1/movies/:id', (req, res)=>{
     //console.log(req.params)                        // { id: '4' }
     
@@ -60,6 +60,36 @@ app.get('/api/v1/movies/:id', (req, res)=>{
             movie: movieById
         }
     })
+})
+
+//4)Update movie by ID -  PATCH: api/v1/movies/:id
+app.patch('/api/v1/movies/:id', (req, res)=>{
+    let id = req.params.id * 1
+    let movieToUpdate = movies.find(el => el.id == id)
+
+    if(!movieToUpdate){
+        return res.status(404).json({
+            status: "failed",
+            message: `No movie is found with id = ${id}`     
+        })
+    }
+
+    //get the index of movie to be updated and updated it
+    let index = movies.indexOf(movieToUpdate)
+    let updatedMovie = Object.assign(movieToUpdate, req.body)
+
+    //placing updated movie back at the index
+    movies[index] = updatedMovie
+
+    fs.writeFile('./data/movies.json', JSON.stringify(movies), (err)=>{
+        res.status(200).json({
+            status: "success",
+            data: {
+                movie: updatedMovie
+            }
+        })
+    })
+
 })
 
 
