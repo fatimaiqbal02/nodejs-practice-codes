@@ -7,8 +7,15 @@ const portNo = 3000
 //middleware
 app.use(express.json())
 
+//CREATING A CUSTOM MIDDLEWARE          //(used to manipulate response or request object before sending response)
+app.use((req, res, next)=>{
+    req.requestedAt = new Date().toISOString()
+    next()
+})
+
 //getting movies list from json file
 let movies = JSON.parse(fs.readFileSync('./data/movies.json'))
+
 
 //CREATING ROUTE HANDLER FUNCTIONS
 
@@ -16,6 +23,7 @@ let movies = JSON.parse(fs.readFileSync('./data/movies.json'))
 const getAllMovies = (req,res)=>{
     res.status(200).json({
         status: "success",
+        requestedAt: req.requestedAt,        //date from middleware
         count: movies.length,
         data: {
             movies: movies
