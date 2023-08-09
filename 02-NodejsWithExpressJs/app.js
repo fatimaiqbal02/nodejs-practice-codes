@@ -20,7 +20,7 @@ app.get('/api/v1/movies', (req,res)=>{
     })
 })
 
-//2)Create new Movie - POST: api/v1/movies
+//2)Add new Movie - POST: api/v1/movies
 app.post('/api/v1/movies', (req, res)=>{
     //console.log(req.body)                         //{name: 'Movie 2', releaseYear: 2020, duration: 70 }
 
@@ -31,14 +31,35 @@ app.post('/api/v1/movies', (req, res)=>{
     fs.writeFile('./data/movies.json', JSON.stringify(movies), (err)=>{
         res.status(201).json({
             status: "success",
-            count: movies.length,
             data: {
-                movies: newMovie                    //newMovie bcz one movie will be displayed which is created
+                movie: newMovie                    //newMovie bcz one movie will be displayed which is created
             }
         })
     })
 
     //res.send('Created')
+})
+
+//3)Get movie by ID -  GET: api/v1/movies:id
+app.get('/api/v1/movies/:id', (req, res)=>{
+    //console.log(req.params)                        // { id: '4' }
+    
+    const id = req.params.id * 1
+    let movieById = movies.find(el => el.id == id)
+
+    if(!movieById){
+        return res.status(404).json({
+            status: "failed",
+            message: `No movie is found with id = ${id}`     
+        })
+    }
+
+    res.status(200).json({
+        status: "success",
+        data: {
+            movie: movieById
+        }
+    })
 })
 
 
