@@ -89,7 +89,34 @@ app.patch('/api/v1/movies/:id', (req, res)=>{
             }
         })
     })
+})
 
+//5)Delete movie by ID - DELETE: api/v1/movies/:id
+app.delete('/api/v1/movies/:id', (req, res)=>{
+    let id = req.params.id * 1
+    let movieToDelete = movies.find(el => el.id == id)
+
+    if(!movieToDelete){
+        return res.status(404).json({
+            status: "failed",
+            message: `No movie is found with id = ${id}`     
+        })
+    }
+
+    //get the index of movie to be updated and updated it
+    let index = movies.indexOf(movieToDelete)
+
+    //Removing movie at the index
+    movies.splice(index, 1)
+
+    fs.writeFile('./data/movies.json', JSON.stringify(movies), (err)=>{
+        res.status(204).json({
+            status: "success",
+            data: {
+                movie: null
+            }
+        })
+    })
 })
 
 
