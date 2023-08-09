@@ -7,10 +7,13 @@ const portNo = 3000
 //middleware
 app.use(express.json())
 
+//getting movies list from json file
 let movies = JSON.parse(fs.readFileSync('./data/movies.json'))
 
+//CREATING ROUTE HANDLER FUNCTIONS
+
 //1)Get all Movies - GET: api/v1/movies
-app.get('/api/v1/movies', (req,res)=>{
+const getAllMovies = (req,res)=>{
     res.status(200).json({
         status: "success",
         count: movies.length,
@@ -18,10 +21,10 @@ app.get('/api/v1/movies', (req,res)=>{
             movies: movies
         }
     })
-})
+}
 
 //2)Add new Movie - POST: api/v1/movies
-app.post('/api/v1/movies', (req, res)=>{
+const addNewMovie =  (req, res)=>{
     //console.log(req.body)                         //{name: 'Movie 2', releaseYear: 2020, duration: 70 }
 
     const newID = movies[movies.length-1].id + 1
@@ -36,12 +39,11 @@ app.post('/api/v1/movies', (req, res)=>{
             }
         })
     })
-
     //res.send('Created')
-})
+}
 
 //3)Get movie by ID -  GET: api/v1/movies/:id
-app.get('/api/v1/movies/:id', (req, res)=>{
+const getMovieById = (req, res)=>{
     //console.log(req.params)                        // { id: '4' }
     
     const id = req.params.id * 1
@@ -60,10 +62,10 @@ app.get('/api/v1/movies/:id', (req, res)=>{
             movie: movieById
         }
     })
-})
+}
 
 //4)Update movie by ID -  PATCH: api/v1/movies/:id
-app.patch('/api/v1/movies/:id', (req, res)=>{
+const updateMovieById =  (req, res)=>{
     let id = req.params.id * 1
     let movieToUpdate = movies.find(el => el.id == id)
 
@@ -89,10 +91,10 @@ app.patch('/api/v1/movies/:id', (req, res)=>{
             }
         })
     })
-})
+}
 
 //5)Delete movie by ID - DELETE: api/v1/movies/:id
-app.delete('/api/v1/movies/:id', (req, res)=>{
+const deleteMovieById =  (req, res)=>{
     let id = req.params.id * 1
     let movieToDelete = movies.find(el => el.id == id)
 
@@ -117,9 +119,27 @@ app.delete('/api/v1/movies/:id', (req, res)=>{
             }
         })
     })
-})
+}
 
+//ALL HTTP METHODS
+app.route('/api/v1/movies')
+    .get(getAllMovies)
+    .post(addNewMovie)
 
+app.route('/api/v1/movies/:id')
+    .get(getMovieById)
+    .patch(updateMovieById)
+    .delete(deleteMovieById)
+
+/* Second way 
+app.get('/api/v1/movies', getAllMovies )
+app.post('/api/v1/movies', addNewMovie)
+app.get('/api/v1/movies/:id', getMovieById)
+app.patch('/api/v1/movies/:id',updateMovieById)
+app.delete('/api/v1/movies/:id', deleteMovieById) 
+*/
+
+    
 //creating and starting the server
 app.listen(portNo, ()=>{
     console.log('Server has started')
