@@ -74,7 +74,7 @@ app.patch('/api/v1/movies/:id', (req, res)=>{
         })
     }
 
-    //get the index of movie to be updated and updated it
+    //get the index of movie to be deleted
     let index = movies.indexOf(movieToUpdate)
     let updatedMovie = Object.assign(movieToUpdate, req.body)
 
