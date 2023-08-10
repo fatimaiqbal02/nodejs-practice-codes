@@ -16,7 +16,7 @@ app.use((req, res, next)=>{
     next()
 })
 
-//CREATING A PARAM MIDDLEWARE
+//CREATING A PARAM MIDDLEWARE TO CHECK CORRECT ID
 const checkMovieID = (req, res, next, value)=>{
     //console.log(value)
     let movieById = movies.find(el => el.id == value)
@@ -25,6 +25,19 @@ const checkMovieID = (req, res, next, value)=>{
         return res.status(404).json({
             status: "failed",
             message: `No movie is found with id = ${value}`     
+        })
+    }
+
+    next()
+}
+
+//CREATING A PARAM MIDDLEWARE TO VALIDATE MOVIE DATA
+const validateMovieData = (req, res, next)=>{
+
+    if(!req.body.name || !req.body.releaseYear || !req.body.duration){
+        return res.status(404).json({
+            status: "failed",
+            message: `Not a valid movie data` 
         })
     }
 
@@ -148,7 +161,7 @@ const deleteMovieById =  (req, res)=>{
 //ALL HTTP METHODS
 app.route('/api/v1/movies')
     .get(getAllMovies)
-    .post(addNewMovie)
+    .post(validateMovieData ,addNewMovie)              //chain multiple middlewares
 
 
 //using param middleware 
