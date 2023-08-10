@@ -4,6 +4,9 @@ let fs = require('fs')
 let app = express()
 const portNo = 3000
 
+//getting movies list from json file
+let movies = JSON.parse(fs.readFileSync('./data/movies.json'))
+
 //middleware
 app.use(express.json())
 
@@ -13,8 +16,20 @@ app.use((req, res, next)=>{
     next()
 })
 
-//getting movies list from json file
-let movies = JSON.parse(fs.readFileSync('./data/movies.json'))
+//CREATING A PARAM MIDDLEWARE
+const checkMovieID = (req, res, next, value)=>{
+    //console.log(value)
+    let movieById = movies.find(el => el.id == value)
+
+    if(!movieById){
+        return res.status(404).json({
+            status: "failed",
+            message: `No movie is found with id = ${value}`     
+        })
+    }
+
+    next()
+}
 
 
 //CREATING ROUTE HANDLER FUNCTIONS
@@ -57,12 +72,12 @@ const getMovieById = (req, res)=>{
     const id = req.params.id * 1
     let movieById = movies.find(el => el.id == id)
 
-    if(!movieById){
+    /* if(!movieById){
         return res.status(404).json({
             status: "failed",
             message: `No movie is found with id = ${id}`     
         })
-    }
+    } */
 
     res.status(200).json({
         status: "success",
@@ -77,12 +92,12 @@ const updateMovieById =  (req, res)=>{
     let id = req.params.id * 1
     let movieToUpdate = movies.find(el => el.id == id)
 
-    if(!movieToUpdate){
+    /* if(!movieToUpdate){
         return res.status(404).json({
             status: "failed",
             message: `No movie is found with id = ${id}`     
         })
-    }
+    } */
 
     //get the index of movie to be deleted
     let index = movies.indexOf(movieToUpdate)
@@ -106,12 +121,12 @@ const deleteMovieById =  (req, res)=>{
     let id = req.params.id * 1
     let movieToDelete = movies.find(el => el.id == id)
 
-    if(!movieToDelete){
+    /* if(!movieToDelete){
         return res.status(404).json({
             status: "failed",
             message: `No movie is found with id = ${id}`     
         })
-    }
+    } */
 
     //get the index of movie to be updated and updated it
     let index = movies.indexOf(movieToDelete)
@@ -129,10 +144,15 @@ const deleteMovieById =  (req, res)=>{
     })
 }
 
+
 //ALL HTTP METHODS
 app.route('/api/v1/movies')
     .get(getAllMovies)
     .post(addNewMovie)
+
+
+//using param middleware 
+app.param('id', checkMovieID)
 
 app.route('/api/v1/movies/:id')
     .get(getMovieById)
