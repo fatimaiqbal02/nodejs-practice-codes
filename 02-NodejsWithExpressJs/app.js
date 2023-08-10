@@ -10,6 +10,9 @@ let movies = JSON.parse(fs.readFileSync('./data/movies.json'))
 //middleware
 app.use(express.json())
 
+//using middleware to serve static files
+app.use(express.static('./public'))
+
 //CREATING A CUSTOM MIDDLEWARE          //(used to manipulate response or request object before sending response)
 app.use((req, res, next)=>{
     req.requestedAt = new Date().toISOString()
