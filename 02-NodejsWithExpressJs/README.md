@@ -26,7 +26,6 @@ The directory includes:
 - **Understanding Param Middleware:** Delving deeper into middleware by focusing on param middleware, which allows you to preprocess specific route parameters.
 - **Chaining Multiple Middleware:** Learning how to combine multiple middleware functions in a specific order to achieve complex request processing and validation.
 - **Serving Static Files:** Discovering how to serve static assets like HTML, CSS, and JavaScript files using Express.js, enhancing the user experience.
-- **Environment Variables and Configuration:** Understanding the importance of environment variables and configuration in Express.js applications, ensuring flexibility and security.
 
 ...and much more!
 
