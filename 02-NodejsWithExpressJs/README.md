@@ -27,8 +27,6 @@ The directory includes:
 - **Chaining Multiple Middleware:** Learning how to combine multiple middleware functions in a specific order to achieve complex request processing and validation.
 - **Serving Static Files:** Discovering how to serve static assets like HTML, CSS, and JavaScript files using Express.js, enhancing the user experience.
 
-...and much more!
-
 #
 Thank you for visiting this directory. This directory is my personal Express.js playground, but I also welcome anyone who wants to learn and grow. 
 I hope you find these practice codes helpful in your learning journey! feel free to explore the code challenges in this directory. 
