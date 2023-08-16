@@ -15,17 +15,17 @@ to gain hands-on experience. All the codes neat and are written in well organize
 ## Features
 The repository includes:
 
-- **Core Modules and Common APIs**: Explore the foundational aspects of Node.js with a focus on its built-in modules and common APIs. I'll be experimenting 
+- **Core Modules and Common APIs**: Exploring the foundational aspects of Node.js with a focus on its built-in modules and common APIs. I'll be experimenting 
                                   with functionalities such as the File System (fs), HTTP, Events, and more.
 
-- **Express.js:** Witness the power of Express.js as I build web applications and RESTful APIs using this popular Node.js framework. 
+- **Express.js:** Witnessing the power of Express.js as I build web applications and RESTful APIs using this popular Node.js framework. 
                 From routing to middleware, expect a wide range of Express.js exploration.
 
-- **Authentication and Authorization:** Unreveal the secrets of secure user authentication and authorization mechanisms. I'll delve into techniques using JWT (JSON Web Tokens) etc.
+- **Authentication and Authorization:** Unrevealing the secrets of secure user authentication and authorization mechanisms. I'll delve into techniques using JWT (JSON Web Tokens) etc.
 
-- **Asynchronous and Synchronous Programming:** Embrace the asynchronous nature of Node.js through practical examples. I'll be showcasing Promises, Async/Await, and classic callback patterns.
+- **Asynchronous and Synchronous Programming:** Embracing the asynchronous nature of Node.js through practical examples. I'll be showcasing Promises, Async/Await, and classic callback patterns.
 
-- **Middleware and Database (MongoDB)**: Discover the significance of middleware in Express.js applications and how it enables seamless request processing. 
+- **Middleware and Database (MongoDB)**: Discovering the significance of middleware in Express.js applications and how it enables seamless request processing. 
                                       Additionally, we'll integrate with MongoDB, a powerful NoSQL database.
 
 ...and much more!
