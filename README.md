@@ -1,5 +1,5 @@
-# NodeJs-practiceCodes
-Welcome to my NodeJs-practiceCodes repository! This GitHub repo contains my practice codes during learning nodeJs from 'proAcademy'.
+# nodeJs-practice-codes
+Welcome to my nodeJs-practice-codes repository! This GitHub repo contains my practice codes during learning nodeJs from 'proAcademy'.
 You will find my practice codes for Core Modules and Common APIs, Express.js, Authentication and Authorization, Async programming, middlewares and database(mongodb) and much more.
 
  
